@@ -1,0 +1,6 @@
+
+## Ignoring certificates and other SSL stuff.
+*.crt
+*.key
+*.req
+*.pem
