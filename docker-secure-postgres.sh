@@ -28,7 +28,12 @@ True=0
 False=1
 
 # Destroys any old docker container with the same name.
-docker ps -a | grep ${DOCKERSRVNAME} >/dev/null 2>&1 && ( docker stop ${DOCKERSRVNAME} || true ; docker rm ${DOCKERSRVNAME})
+if docker ps -a | grep ${DOCKERSRVNAME} >/dev/null 2>&1 
+then 
+	echo "Deleting existing ${DOCKERSRVNAME} container."
+	docker stop ${DOCKERSRVNAME} > /dev/null 2>&1
+	docker rm ${DOCKERSRVNAME} > /dev/null 2>&1
+fi
 
 # You can comment thise part and add your own certificates. Be sure
 # to copy them in this directory and to name them accordingly.
