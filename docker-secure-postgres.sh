@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-#title          :Secure Postgress Docker Container for Development
-#description    :This is a script that I created to expedite the 
-#				 creation of a secure docker container during the 
-#                development of a Django application
-#file_nam       :docker-secure-postgres.sh
-#author         :Adrian Puente Z.
-#date           :20200315
-#version        :1.0
-#bash_version   :GNU bash, version 5.0.3(1)-release (x86_64-pc-linux-gnu)
+# title          :Secure Postgress Docker Container for Development
+# description    :This is a script that I created to expedite the 
+#                 creation of a secure docker container during the 
+#                 development of a Django application
+# file_nam       :docker-secure-postgres.sh
+# author         :Adrian Puente Z.
+# date           :20200315
+# version        :1.0
+# bash_version   :GNU bash, version 5.0.3(1)-release (x86_64-pc-linux-gnu)
 #==================================================================
 
 set -euo pipefail
@@ -35,7 +35,7 @@ then
 	docker rm ${DOCKERSRVNAME} > /dev/null 2>&1
 fi
 
-# You can comment thise part and add your own certificates. Be sure
+# You can comment this part and add your own certificates. Be sure
 # to copy them in this directory and to name them accordingly.
 openssl req -new -text -passout pass:abcd -subj /CN=${APPDBHOSTNAME} -out server.req -keyout privkey.pem
 openssl rsa -in privkey.pem -passin pass:abcd -out server.key
